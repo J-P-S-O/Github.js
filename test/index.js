@@ -3,7 +3,7 @@ import axios from "axios"
 let server = new GithubjsServer("payload")
 
 server.listen(30022)
-var request = require('request');
+import request from "request"
 
 request.post(
       'http://localhost'+ server.payloadPath,
@@ -12,7 +12,7 @@ request.post(
           if (!error && response.statusCode == 200) {
               console.log(body);
           }else{
-            console.error(res.statusCode)
+            console.error(response.statusCode)
             throw new Error(error)
           }
       }
