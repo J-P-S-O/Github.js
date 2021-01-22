@@ -10,8 +10,9 @@ export class GithubjsServer {
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.raw());
-    this.app.post(this.payloadPath,
-
+    this.app.post(this.payloadPath,function(req, res){
+      app.connector.emit("Got Body", req.body)
+    }
     )
   }
   listen (port, cb){
