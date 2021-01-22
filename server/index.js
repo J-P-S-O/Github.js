@@ -21,12 +21,12 @@ export class GithubjsServer {
   }
   listen (port){
 
-     var p = this.app.listen(port, function() {
+       this.app.listen(port, function() {
        console.error("Succesfully loaded GithubjsServer")
        console.error("Check if the port forwarder is ok")
        console.error("And that webhooks are on")
        console.error("That's all! :)")
-       this.debug.port = p.address().port
+
      })
   }
 

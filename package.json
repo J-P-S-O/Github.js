@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/J-P-S-O/Github.js/issues"
   },
-  "homepage": "https://github.com/J-P-S-O/Github.js#readme"
+  "homepage": "https://github.com/J-P-S-O/Github.js#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
