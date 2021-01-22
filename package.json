@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node test/index.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/J-P-S-O/Github.js.git"
