@@ -1,0 +1,30 @@
+{
+  "name": "github.js",
+  "version": "1.0.0",
+  "description": "The github api in a nodejs module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --check index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-P-S-O/Github.js.git"
+  },
+  "keywords": [
+    "gh",
+    "github",
+    "api",
+    "v4",
+    "nodejs",
+    "webhooks",
+    "bots",
+    "probot",
+    "bot"
+  ],
+  "author": "J-P-S-O",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/J-P-S-O/Github.js/issues"
+  },
+  "homepage": "https://github.com/J-P-S-O/Github.js#readme"
+}
