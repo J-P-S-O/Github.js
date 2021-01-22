@@ -1,11 +1,15 @@
 // This file is the server for the webhooks
 import { EventEmitter } from "events"
+import bodyParser from "body-parser"
 import express from "express"
 export class GithubjsServer {
   constructor(path){
     this.connector = new EventEmitter()
     this.payloadPath = path
     this.app = express()
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.raw());
     this.app.post(this.payloadPath,
 
     )
