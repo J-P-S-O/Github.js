@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/J-P-S-O/Github.js#readme",
   "dependencies": {
+    "@octokit/rest": "^18.0.14",
     "axios": "^0.21.1",
     "request": "^2.88.2"
   }
