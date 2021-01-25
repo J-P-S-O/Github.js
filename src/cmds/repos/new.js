@@ -7,8 +7,8 @@ export default (opts)=>{
 
 const https = require('https');
 
-var postData = querystring.stringify({
-    'msg' : 'Hello World!'
+var postData = JSON.stringify({
+    
 });
 
 var options = {
@@ -17,8 +17,9 @@ var options = {
   path: '/post.php',
   method: 'POST',
   headers: {
-       'Content-Type': 'application/x-www-form-urlencoded',
-       'Content-Length': postData.length
+       'Content-Type': 'application/json',
+       'Content-Length': postData.length,
+       'Authentication': "token "+ opts.token
      }
 };
 
