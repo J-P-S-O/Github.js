@@ -1,20 +1,28 @@
 import {spawn } from "child_process"
+import https from "https"
 export let help = `
 Create a new repo
 
 `
-export default (opts)=>{
-
-const https = require('https');
-
+export default async (opts, cb)=>{
+if (!cb) cb = (err, data)  =>{
+  if (err) throw err
+  return data
+}
+if (typeof cb !== "function") throw "Callback must be function"
+if (!opts.name) throw " Error: name required"
+if (!opts.auth) throw "Error: authentication required"
 var postData = JSON.stringify({
-    
+  name: opts.name,
+  auto_init: opts.auto_init,
+  private: opts.scope === "private",
+  gitignore: opts.gitignore || undefined
 });
 
 var options = {
-  hostname: 'posttestserver.com',
+  hostname: 'api.github.com',
   port: 443,
-  path: '/post.php',
+  path: '/user/repos',
   method: 'POST',
   headers: {
        'Content-Type': 'application/json',
@@ -22,18 +30,21 @@ var options = {
        'Authentication': "token "+ opts.token
      }
 };
-
+let data = "";
+let error = null;
 var req = https.request(options, (res) => {
-  console.log('statusCode:', res.statusCode);
-  console.log('headers:', res.headers);
 
+  if (res.statusCode != 200)
+  error = { status: res.status, code: res.statusCode, body: res.body}
   res.on('data', (d) => {
-    process.stdout.write(d);
+    data+=d;
   });
+  res.on('end', )
 });
 
 req.on('error', (e) => {
-  console.error(e);
+ error = e
+ cb(error, data)
 });
 
 req.write(postData);
