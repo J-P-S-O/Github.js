@@ -39,7 +39,9 @@ var req = https.request(options, (res) => {
   res.on('data', (d) => {
     data+=d;
   });
-  res.on('end', )
+  res.on('end', ()=>{
+    cb(null, data)
+  })
 });
 
 req.on('error', (e) => {
