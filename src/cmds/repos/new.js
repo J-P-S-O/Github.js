@@ -4,11 +4,12 @@ export let help = `
 Create a new repo
 
 `
-export default async (opts, cb)=>{
+export default (opts, cb)=>{
 if (!cb) cb = (err, data)  =>{
   if (err) throw err
   return data
 }
+
 if (typeof cb !== "function") throw "Callback must be function"
 if (!opts.name) throw " Error: name required"
 if (!opts.auth) throw "Error: authentication required"
@@ -33,14 +34,14 @@ var options = {
 let data = "";
 let error = null;
 var req = https.request(options, (res) => {
-
+  console.log(res.statusCode)
   if (res.statusCode != 200)
   error = { status: res.status, code: res.statusCode, body: res.body}
   res.on('data', (d) => {
     data+=d;
   });
   res.on('end', ()=>{
-    cb(null, data)
+    cb(error, data)
   })
 });
 
