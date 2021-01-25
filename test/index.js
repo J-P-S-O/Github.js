@@ -6,16 +6,11 @@ newrep({
   name: "test",
   auth: ghtoken
 
-}, (err, data) =>{
-  console.log(err)
-   if (err ) throw err
-   console.log(data)
-
 })
 let main = async function(){
 
 
-let app = gh(process.env.ghtoken)
+let app = gh(fs.readFileSync("E:\\jp\\secret.key"))
 
 
 
