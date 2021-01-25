@@ -6,7 +6,11 @@ Create a new repo
 `
 export default (opts, cb)=>{
 if (!cb) cb = (err, data) =>{
+  try{
   console.log(JSON.parse(data))
+}catch(){
+  console.log(data)
+}
   console.log(err)
    if (err ) throw err
 
@@ -33,7 +37,7 @@ var options = {
        'User-Agent': "Node.js v14 windows 10 "
      }
 };
-console.log(opts.auth)
+
 let data = "";
 let error = null;
 var req = https.request(options, (res) => {

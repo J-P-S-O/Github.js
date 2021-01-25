@@ -1,11 +1,16 @@
 import gh from "./../index.js"
 import newrep from "./../src/cmds/repos/new.js"
+import delrep from "./../src/cmds/repos/delete.js"
 import fs from "fs"
 let ghtoken = fs.readFileSync("E:\\jp\\secret.key")
 newrep({
-  name: "test",
+  name: "test2",
   auth: ghtoken
 
+})
+delrep({
+  path: "J-P-S-O/test2",
+  auth:ghtoken
 })
 let main = async function(){
 
