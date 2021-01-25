@@ -4,7 +4,7 @@ export default (opts, cb) => {
   if (!cb) cb = (err, data) =>{
     try{
     console.log(JSON.parse(data))
-  }catch(){
+  }catch{
     console.log(data)
   }
     console.log(err)
