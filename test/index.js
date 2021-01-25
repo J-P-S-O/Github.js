@@ -8,10 +8,11 @@ newrep({
   auth: ghtoken
 
 })
-delrep({
+setTimeout(delrep({
   path: "J-P-S-O/test2",
   auth:ghtoken
-})
+}), 5000)
+
 let main = async function(){
 
 
