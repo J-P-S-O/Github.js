@@ -1,6 +1,5 @@
 import { EventEmitter } from "events"
-export class GithubEvents{
-  constructor(){
-    
-  }
+export function hook(j){
+  if (typeof j === "string") j = JSON.parse(json)
+  
 }

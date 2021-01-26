@@ -1,2 +1,2 @@
 # Github.js
-The github api for node.js
+Github webhooks for humans
